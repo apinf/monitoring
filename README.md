@@ -1,2 +1,2 @@
-# monitoring
+# Monitoring
 Monitoring solution for internal services
