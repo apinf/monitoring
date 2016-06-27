@@ -1,0 +1,11 @@
+route:
+    receiver: 'general'
+receivers:
+    - name: 'general'
+      email_configs:
+          - to: 'Alert Receiver <alert.receiver@gmail.com>'
+            from: 'Alertmanager <alertmanager@gamil.com>'
+            smarthost: 'smtp.gmail.com:587'
+            send_resolved: true
+            auth_username: 'alertmanager@gamil.com'
+            auth_password: 'xxx'
