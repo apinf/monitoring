@@ -1,7 +1,7 @@
 {
-  "id": 6,
-  "title": "node.exmaple.com",
-  "originalTitle": "node.exmaple.com",
+  "id": 4,
+  "title": "node.example.com",
+  "originalTitle": "node.example.com",
   "tags": [],
   "style": "dark",
   "timezone": "browser",
@@ -16,7 +16,7 @@
       "panels": [
         {
           "aliasColors": {
-            "node.exmaple.com:9100": "#890F02"
+            "node.example.com:9100": "#890F02"
           },
           "bars": false,
           "datasource": "Prometheus",
@@ -58,13 +58,13 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "node_load1{instance='node.exmaple.com:9100'}",
+              "expr": "node_load1{instance='node.example.com:9100'}",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "{{instance}}",
               "metric": "",
               "refId": "A",
-              "step": 2
+              "step": 1
             }
           ],
           "timeFrom": null,
@@ -138,11 +138,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "((node_memory_MemTotal{job='node-exporter', instance='node.exmaple.com:9100'} - node_memory_MemFree{job='node-exporter', instance='node.exmaple.com:9100'} - node_memory_Buffers{job='node-exporter', instance='node.exmaple.com:9100'} - node_memory_Cached{job='node-exporter', instance='node.exmaple.com:9100'}) * 100) / node_memory_MemTotal{job='node-exporter', instance='node.exmaple.com:9100'}",
+              "expr": "((node_memory_MemTotal{job='node-exporter', instance='node.example.com:9100'} - node_memory_MemFree{job='node-exporter', instance='node.example.com:9100'} - node_memory_Buffers{job='node-exporter', instance='node.example.com:9100'} - node_memory_Cached{job='node-exporter', instance='node.example.com:9100'}) * 100) / node_memory_MemTotal{job='node-exporter', instance='node.example.com:9100'}",
               "intervalFactor": 2,
               "legendFormat": "{{instance}}",
               "refId": "A",
-              "step": 4
+              "step": 2
             }
           ],
           "timeFrom": null,
@@ -187,7 +187,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": null,
+          "datasource": "Prometheus",
           "decimals": null,
           "editable": true,
           "error": false,
@@ -226,20 +226,20 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum (irate(node_disk_io_time_ms{job='node-exporter', instance='node.exmaple.com:9100',device!~'^(md\\\\\\\\d+$|dm-)'}[5m]) / 1000 * 100)",
+              "expr": "irate(node_disk_io_time_ms{instance='node-exporter:9100', device!~'^(md\\\\\\\\d+$|dm-)'}[5m]) / 1000 * 100",
               "interval": "",
               "intervalFactor": 2,
               "legendFormat": "",
               "metric": "",
               "refId": "A",
-              "step": 4
+              "step": 2
             }
           ],
           "timeFrom": null,
           "timeShift": null,
           "title": "Disk I/O Utilization",
           "tooltip": {
-            "msResolution": false,
+            "msResolution": true,
             "shared": true,
             "value_type": "cumulative"
           },
@@ -306,18 +306,18 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum (irate(node_network_receive_bytes{job='node-exporter', instance='node.exmaple.com:9100'}[5m])) ",
+              "expr": "sum (irate(node_network_receive_bytes{job='node-exporter', instance='node.example.com:9100'}[5m])) ",
               "intervalFactor": 2,
               "legendFormat": "Received",
               "refId": "A",
-              "step": 4
+              "step": 2
             },
             {
-              "expr": "sum by(instance)(irate(node_network_transmit_bytes{job='node-exporter', instance='node.exmaple.com:9100'}[5m])) ",
+              "expr": "sum by(instance)(irate(node_network_transmit_bytes{job='node-exporter', instance='node.example.com:9100'}[5m])) ",
               "intervalFactor": 2,
               "legendFormat": "Transmitted",
               "refId": "B",
-              "step": 4
+              "step": 2
             }
           ],
           "timeFrom": null,
@@ -397,7 +397,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "(100 - sum (node_filesystem_free{job='node-exporter', instance='node.exmaple.com:9100'}) / sum (node_filesystem_size{job='node-exporter', instance='node.exmaple.com:9100'}) * 100)",
+              "expr": "(100 - sum (node_filesystem_free{job='node-exporter', instance='node.example.com:9100'}) / sum (node_filesystem_size{job='node-exporter', instance='node.example.com:9100'}) * 100)",
               "interval": "",
               "intervalFactor": 2,
               "legendFormat": "",
@@ -487,13 +487,13 @@
           "steppedLine": true,
           "targets": [
             {
-              "expr": "ALERTS{alertname=\"high_load\", alertstate=\"firing\", instance='node.exmaple.com:9100'}",
+              "expr": "ALERTS{alertname=\"high_load\", alertstate=\"firing\", instance='node.example.com:9100'}",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "{{alertname}}",
               "metric": "",
               "refId": "A",
-              "step": 2
+              "step": 1
             }
           ],
           "timeFrom": null,
@@ -568,13 +568,13 @@
           },
           "targets": [
             {
-              "expr": "ALERTS{alertname=\"high_load\",alertstate=\"firing\", instance='node.exmaple.com:9100'}",
+              "expr": "ALERTS{alertname=\"high_load\",alertstate=\"firing\", instance='node.example.com:9100'}",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "",
               "metric": "ALERTS",
               "refId": "A",
-              "step": 20
+              "step": 2
             }
           ],
           "thresholds": "0.6,0.9",
@@ -612,7 +612,7 @@
     }
   ],
   "time": {
-    "from": "now-30m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -648,6 +648,6 @@
   },
   "refresh": "5s",
   "schemaVersion": 12,
-  "version": 1,
+  "version": 2,
   "links": []
 }
