@@ -43,7 +43,17 @@ Monitoring solution for internal services.
 
 ## Add new node
 
+### Install monitoring agent on new node 
+
+1. Create 'docker-compose.yml' based on file 'exporter/docker-compose.yml'. 
+2. Create 'env.nginx' based on file 'exporter/env.nginx.example' and set HTTP Basic Authentication user name and password. 
+
+### Update Prometheus config
+
 1. Add new node in file 'prometheus/prometheus.yml' to 'targets' property.
 2. ```docker-compose build``` and ```docker-compose up -d```.
-3. Replace in 'grafana/charts_template.json' value 'node.exmaple.com' on new node host.
-4. Import file 'grafana/charts_template.json' as dashboard to Grafana.
+
+### Add new dahsboard in Graphana
+
+1. Replace in 'grafana/charts_template.json' value 'node.exmaple.com' on new node host.
+2. Import file 'grafana/charts_template.json' as dashboard to Grafana.
