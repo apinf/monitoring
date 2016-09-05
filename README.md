@@ -46,7 +46,8 @@ Monitoring solution for internal services.
 ### Install monitoring agent on new node 
 
 1. Create 'docker-compose.yml' based on file 'exporter/docker-compose.yml'. 
-2. Create 'env.nginx' based on file 'exporter/env.nginx.example' and set HTTP Basic Authentication user name and password. 
+2. Create 'env.nginx' based on file 'exporter/env.nginx.example' and set HTTP Basic Authentication user name and password.
+3. ```docker-compose up -d```
 
 ### Update Prometheus config
 
